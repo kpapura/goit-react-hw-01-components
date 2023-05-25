@@ -13,7 +13,7 @@ th {
   font-weight: bold;
 }
 
-tr:nth-child(even) {
+tr:th-of-type(even) {
   background-color: #f9f9f9;
 }
 
@@ -21,8 +21,8 @@ tr:hover {
   background-color: #ebebeb;
 }
 
-td:first-child,
-th:first-child {
+td:rst-of-type,
+th:rst-of-type {
   padding-left: 20px;
 }
 
