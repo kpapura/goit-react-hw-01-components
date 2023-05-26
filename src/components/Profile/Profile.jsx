@@ -1,36 +1,44 @@
 import PropTypes from 'prop-types';
 import userImg from '../../img/programmer.png';
 import { ProfileBox, Name, Stats, LiItem } from './Profile.styled';
-const Profile = ({ user }) => {
+ const Profile = ({ username, tag, location, stats, avatar=userImg}) => {
   return (
     <ProfileBox>
       <div className="description">
-        <img src={userImg} alt="User avatar" className="avatar" />
-        <Name>{user.username}</Name>
-        <Name>@{user.tag}</Name>
-        <Name>{user.location}</Name>
+        <img src={avatar} alt="User avatar" className="avatar" />
+        <Name>{username}</Name>
+        <Name>@{tag}</Name>
+        <Name>{location}</Name>
       </div>
 
       <Stats>
         <LiItem>
           <span className="label">Followers: </span>
-          <span className="quantity">{user.stats.followers}</span>
+          <span className="quantity">{stats.followers}</span>
         </LiItem>
         <LiItem>
           <span className="label">Views: </span>
-          <span className="quantity">{user.stats.views}</span>
+          <span className="quantity">{stats.views}</span>
         </LiItem>
         <LiItem>
           <span className="label">Likes: </span>
-          <span className="quantity">{user.stats.likes}</span>
+          <span className="quantity">{stats.likes}</span>
         </LiItem>
       </Stats>
     </ProfileBox>
   );
 };
 
-Profile.propTypes = {
-  user: PropTypes.object.isRequired,
+  Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default Profile;

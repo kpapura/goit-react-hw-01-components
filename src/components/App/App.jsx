@@ -20,10 +20,11 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Profile user={user} />
+      <Profile avatar={user.avatar} username={user.username} tag={user.tag} location={user.location} stats={user.stats} />
       <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
     </div>
   );
 };
+
